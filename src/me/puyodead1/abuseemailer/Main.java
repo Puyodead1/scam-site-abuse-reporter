@@ -1,5 +1,6 @@
 package me.puyodead1.abuseemailer;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,12 +10,12 @@ public class Main {
 		ArrayList<String> info = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Please paste the link: ");
+		System.out.println("Please paste the FULL link: ");
 		String _link = sc.nextLine();
 		
 		
 		String _domain = GetDomain(_link);
-
+		System.out.println("-----------------QUESTIONS-----------------");
 		System.out.println("Other Links: ");
 		String _otherLinks = sc.nextLine();
 		
@@ -24,12 +25,13 @@ public class Main {
 		System.out.println("Comments: ");
 		String _comments = sc.nextLine();
 
+		System.out.println("-----------------END QUESTIONS-----------------");
 		System.out.println("Please wait....");
+		System.out.println("-----------------WHO.IS-----------------");
 
 		HttpURLCon http = new HttpURLCon();
 
 		http.sendGet(_domain, 1);
-
 		SendEmail.SendMail(HttpURLCon.email, _domain, _link, _otherLinks, _sc, _comments);
 	}
 
