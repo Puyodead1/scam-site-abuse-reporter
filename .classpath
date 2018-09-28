@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/Puyodead1/Downloads/javax.mail.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Puyodead1/Downloads/commons-io-2.6-bin/commons-io-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Puyodead1/Downloads/gson-2.8.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

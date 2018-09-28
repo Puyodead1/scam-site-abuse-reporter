@@ -33,7 +33,7 @@ public class SendEmail {
 		msg.setHeader("X-Mailer", "Tov Are's program");
 		msg.setSentDate(new Date());
 		SMTPTransport t = (SMTPTransport) session.getTransport("smtps");
-		t.connect("smtp.gmail.com", "stopscammersnow2018@gmail.com", "EMAILpassword");
+		t.connect("smtp.gmail.com", "stopscammersnow2018@gmail.com", "password");
 		t.sendMessage(msg, msg.getAllRecipients());
 		System.out.println("Response: " + t.getLastServerResponse());
 		t.close();

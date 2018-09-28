@@ -7,6 +7,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 public class HttpURLCon {
 
 	private final String USER_AGENT = "Mozilla/5.0";
@@ -14,6 +19,10 @@ public class HttpURLCon {
 	public static Scanner sc = new Scanner(System.in);
 
 	public void sendGet(String link, int mode) throws Exception {
+		
+		JsonParser parser = new JsonParser();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
 		String url = null;
 		String _ip = null;
 		if (mode == 1) {
@@ -44,19 +53,23 @@ public class HttpURLCon {
 		System.out.println(response);
 
 		int firstIndex = response.indexOf("contactEmail");
-		int lastIndex = response.lastIndexOf("contactEmail");
+		int lastIndex = response.lastIndexOf("domainNameExt");
 
-		email = response.substring(firstIndex + 16, lastIndex + 33);
+		email = response.substring(firstIndex + 16, lastIndex-5);
 		System.out.println("Found Email: " + email + ", Use?: ");
 		if(sc.nextLine() == "n") {
 			System.out.println("Enter email to use: ");
 			email = sc.nextLine();
 		}
+		String a[] = link.split("//");
+		link = a[1];
 		try { 
-		PrintWriter out = new PrintWriter(link.substring(7) + ".json");
-		out.println(response);
+		PrintWriter out = new PrintWriter(link + ".json");
+		JsonElement el = parser.parse(response.toString());
+		out.println(gson.toJson(el));
+		
 		out.close();
-		System.out.println("Who.is file saved as: " + link.substring(7) + ".json");
+		System.out.println("Who.is file saved as: " + link + ".json");
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
