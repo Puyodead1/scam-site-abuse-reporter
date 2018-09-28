@@ -2,6 +2,7 @@ package me.puyodead1.abuseemailer;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
@@ -50,6 +51,14 @@ public class HttpURLCon {
 		if(sc.nextLine() == "n") {
 			System.out.println("Enter email to use: ");
 			email = sc.nextLine();
+		}
+		try { 
+		PrintWriter out = new PrintWriter(link.substring(7) + ".json");
+		out.println(response);
+		out.close();
+		System.out.println("Who.is file saved as: " + link.substring(7) + ".json");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
 		
 	}

@@ -9,37 +9,20 @@ public class Main {
 		ArrayList<String> info = new ArrayList<String>();
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Please paste the ADAROSS post: ");
-
-		while (sc.hasNext()) {
-			String i = sc.nextLine();
-			if (i.equals("e")) {
-				break;
-			} else {
-				info.add(i);
-			}
-		}
-		System.out.println("Broke");
-		String _domain = GetDomain(info.get(3));
-		String _link = info.get(3);
+		System.out.println("Please paste the link: ");
+		String _link = sc.nextLine();
+		
+		
+		String _domain = GetDomain(_link);
 
 		System.out.println("Other Links: ");
 		String _otherLinks = sc.nextLine();
-		/*if(_otherLinks == null || _otherLinks == "" || _otherLinks == " ") {
-			_otherLinks = "N/A";
-		}*/
 		
 		System.out.println("Screen Shots: ");
 		String _sc = sc.nextLine();
-		/*if(_sc == null || _sc == "" || _sc == " ") {
-			_sc = "N/A";
-		}*/
 
 		System.out.println("Comments: ");
 		String _comments = sc.nextLine();
-		/*if(_comments == null || _comments == "" || _comments == " ") {
-			_comments = "N/A";
-		}*/
 
 		System.out.println("Please wait....");
 
