@@ -1,6 +1,7 @@
 #To Use:
 from cmd, type 'java -jar Reporter.jar'
 paste the adaross post in this format:
+```
 Number
 866-273-8075
 Link
@@ -9,7 +10,7 @@ Info
 Apple tech support popup scam
 Domain Report Email Testing
 abuse@godaddy.com
-
+```
 press enter and type e then enter again to confirm
 fill out the next 3 questions of you want or just press enter
 it will get who.is info and try and find an abuse email, IT MIGHT BE WRONG
